@@ -1,4 +1,4 @@
-package org.rundeck.plugin
+package org.alex2077.rundeck.plugin
 
 import com.dtolabs.rundeck.core.plugins.Plugin
 import com.dtolabs.rundeck.plugins.ServiceNameConstants
@@ -15,10 +15,14 @@ import com.google.api.client.json.gson.GsonFactory
 import com.google.api.services.drive.Drive
 import com.google.api.services.drive.DriveScopes
 import com.google.api.services.drive.model.File
+import groovy.util.logging.Slf4j
+
+import java.nio.file.Files
 
 /**
  * Created by Alex2077.
  */
+@Slf4j
 @Plugin(service=ServiceNameConstants.Notification, name=GoogleDriveNotificationPlugin.SERVICE_NAME)
 @PluginDescription(title=GoogleDriveNotificationPlugin.SERVICE_TITLE, description=GoogleDriveNotificationPlugin.SERVICE_DESCRIPTION)
 class GoogleDriveNotificationPlugin implements NotificationPlugin {
@@ -63,6 +67,16 @@ class GoogleDriveNotificationPlugin implements NotificationPlugin {
                 .build()
 
         java.io.File fileContent = new java.io.File(fileToUpload);
+
+        log.debug("File to upload: ${fileToUpload}")
+        log.debug("File exists: ${fileContent.exists()}")
+        log.debug("File can read: ${fileContent.canRead()}")
+        log.debug("File si readable: "+ Files.isReadable(Paths.get("fileToUpload")))
+        log.debug("File exists (Files): "+ Files.exists(fileContent))
+
+        /*if (!fileContent.exists()) {
+            throw new FileNotFoundException("Resource not found: " + fileToUpload)
+        }*/
         String fileName = fileContent.getName();
 
         File fileMetadata = new File();
