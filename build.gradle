@@ -3,6 +3,7 @@ apply plugin: 'groovy'
 apply plugin: 'java'
 
 sourceCompatibility = 1.8
+archivesBaseName = 'google-drive-notification-plugin'
 version = '1.0.0'
 
 configurations{
@@ -37,7 +38,7 @@ jar {
     from "$buildDir/output"
     manifest {
         attributes 'Rundeck-Plugin-Name' : 'Google Drive Notification'
-        attributes 'Rundeck-Plugin-Classnames': 'org.rundeck.plugin.GoogleDriveNotificationPlugin'
+        attributes 'Rundeck-Plugin-Classnames': 'org.alex2077.rundeck.plugin.GoogleDriveNotificationPlugin'
         attributes 'Rundeck-Plugin-File-Version': "${project.version}"
         attributes 'Rundeck-Plugin-Description' : 'Upload a file to google drive with Rundeck'
         attributes 'Rundeck-Plugin-Version': '1.2'
