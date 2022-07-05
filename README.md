@@ -11,7 +11,7 @@ Copy the file `google-drive-notification-plugin-<version>.jar` file to the `$RDE
 ## Configuration
 To configure this plugin you need add these parameters:
 
-`Credentials file path` - Location of the json file that contains the data of the google account.
-`Folder ID` - This unique identifier for objects in Google Drive can be found in the URL when you open an folder.
-`File to upload` - Path where the file to upload is located.
+* `Credentials file path` - Location of the json file that contains the data of the google account.
+* `Folder ID` - This unique identifier for objects in Google Drive can be found in the URL when you open an folder.
+* `File to upload` - Path where the file to upload is located.
 
